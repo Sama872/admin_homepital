@@ -5,9 +5,66 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+  text-align: right;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+:root{
+  --main-bg:#FAFAFA
+}
+.bg-main{
+  background-color: var(--main-bg);
+}
+.simple-border{
+  border-left: 1px solid lightgray;
+}
+.links{
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+}
+.bg-main-dark{
+  background-color: var(--main-color) !important;
+}
+.inp{
+  border: none;
+  outline: none;
+  border-bottom: #071355 2px solid;
+  margin: 20px;
+}
+.text-main{
+  color:#071355 !important;
+}
+.text-pointer{
+  cursor: pointer;
+}
+.item:hover{
+  box-shadow: var(--shadow);
+  border-radius: solid 1px var(--main-color);
+}
+/* .text-color{
+  color: #071355;
+} */
+.input-modal{
+  width: 50%;
+    height: 30px;
+    padding: 7px;
+    margin: 4px;
+    border: none;
+    border: 1px solid #071355;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 3px;
+
+}
+.input-modal:focus::placeholder {
+  transform: translateX(15px) translateY(-5px);
+  transition: transform 0.3s ease;
+  color: #071355;
+  padding-right: 3px;
 }
