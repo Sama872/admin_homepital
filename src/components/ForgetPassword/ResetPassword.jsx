@@ -56,7 +56,7 @@ console.log(data)
 
   return (
     <div className='w-75 mx-auto py-4 pt-5 mt-5'>
-      <h2>إعادة تعيين كلمة السر</h2>
+      <h2 className='text-main'>إعادة تعيين كلمة السر</h2>
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor='newPassword'>كلمة المرور</label>
         <input
@@ -94,7 +94,7 @@ console.log(data)
         )}
         <button
           type='submit'
-          className='btn bg-primary'
+          className='btn form-button'
           disabled={!(formik.dirty && formik.isValid)}
         >
           تاكيد

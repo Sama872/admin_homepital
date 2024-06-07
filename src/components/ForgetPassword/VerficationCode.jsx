@@ -45,9 +45,9 @@ export default function VerificationCode() {
 
   return (
     <div className='w-75 mx-auto py-4 pt-5 mt-5'>
-      <h2>ادخال كود التاكيد</h2>
+      <h2 className='text-main'>ادخال كود التاكيد</h2>
       <form onSubmit={formik.handleSubmit}>
-        <label htmlFor='resetCode'>كود التاكيد</label>
+        <label htmlFor='resetCode text-muted'>كود التاكيد</label>
         <input
           type='text'
           id='resetCode'
@@ -64,7 +64,7 @@ export default function VerificationCode() {
         )}
         <button
           type='submit'
-          className='btn bg-primary text-light m-3'
+          className='btn form-button m-3'
           disabled={!formik.isValid}
         >
           تاكيد

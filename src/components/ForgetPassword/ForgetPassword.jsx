@@ -41,13 +41,13 @@ export default function ForgetPassword() {
 
   return (
     <div className='w-75 mx-auto py-4 pt-5 mt-5'>
-      <h2>ادخل البريد الالكتروني</h2>
+      <h2 className='text-main'>ادخل البريد الالكتروني</h2>
       <form onSubmit={formik.handleSubmit}>
-        <label htmlFor='email'>البريد الالكتروني:</label>
-        <input type='email' id='email' name='email' onChange={formik.handleChange} onBlur={formik.handleBlur} className='form-control mb-2' value={formik.values.email} />
+        <label htmlFor='email' className='text-muted h5 m-2'>البريد الالكتروني:</label>
+        <input type='email' id='email' name='email' onChange={formik.handleChange} onBlur={formik.handleBlur} className='form-control mb-2 inp' value={formik.values.email} />
         {formik.errors.email&&formik.touched.email?<Alert severity="error">{formik.errors.email}</Alert>:''}
         {loading ? <button type='button' className='btn bg-main text-light m-3'><i className='fas fa-spinner fa-spin'></i></button> :
-          <button type='submit' className='btn bg-primary text-light m-3' disabled={!(formik.dirty && formik.isValid)}>تاكيد</button>
+          <button type='submit' className='btn form-button m-3' disabled={!(formik.dirty && formik.isValid)}>تاكيد</button>
         }
       </form>
     </div>

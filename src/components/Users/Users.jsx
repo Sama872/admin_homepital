@@ -12,6 +12,8 @@ import { Link, useParams } from 'react-router-dom';
 import { Fade } from "react-awesome-reveal";
 import * as Yup from 'yup';
 import Alert from '@mui/material/Alert';
+import male from '../../Images/male-removebg-preview.png'
+import female from '../../Images/female-removebg-preview.png'
 export default function Users() {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -248,7 +250,7 @@ export default function Users() {
           visible={true}
           height='80'
           width='80'
-          color='#071355'
+          color='#9abf4d'
           ariaLabel='puff-loading'
           wrapperClass="d-flex mt-5 justify-content-center"
         />
@@ -257,7 +259,7 @@ export default function Users() {
         <div className='row' >
           
         <div>
-        <button className='btn btn-primary d-flex justify-content-center mx-auto my-2' onClick={handleShow} >
+        <button className='btn botton d-flex justify-content-center mx-auto my-2' onClick={handleShow} >
                اضافه مستخدم جديد
       </button>
         </div>
@@ -278,10 +280,10 @@ export default function Users() {
                 {formik.errors.password&&formik.touched.password?<Alert severity="error">{formik.errors.password}</Alert>:''}
                 <input placeholder='تاكيد كلمه السر' id='passwordConfirm' name='passwordConfirm' type='password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.passwordConfirm} className='input-modal my-2'/>
                 {formik.errors.passwordConfirm&&formik.touched.passwordConfirm?<Alert severity="error">{formik.errors.passwordConfirm}</Alert>:''}
-                <select name="gender" id="gender" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.gender}>
+                <select name="gender" id="gender" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.gender} className='input-modal my-2 h-25'>
                     <option>النوع</option>
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
+                    <option value="female">female</option>
+                    <option value="male">male</option>
                 </select>
                 {formik.errors.gender&&formik.touched.gender?<Alert severity="error">{formik.errors.gender}</Alert>:''}
                 <input placeholder='العمر' id='age' name='age' type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.age} className='input-modal my-2'/>
@@ -292,7 +294,7 @@ export default function Users() {
           <Button variant="secondary" onClick={handleClose}>
             اغلق
           </Button>
-          <Button variant="primary" onClick={formik.handleSubmit}>
+          <Button className='botton' onClick={formik.handleSubmit}>
             اضافه
           </Button>
         </Modal.Footer>
@@ -306,21 +308,25 @@ export default function Users() {
         </Modal.Header>
         <Modal.Body>
             <form className='row container'>
+              <label className='text-main h6 mt-2' htmlFor='userName'>اسم المستخدم</label>
                 <input placeholder='اسم المستخدم' id='userName' name='userName' type='text' ref={userNameRef} className='input-modal my-2'
                 value={formData.userName} 
                 onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
                 />
                 {errors.userName && <Alert severity="error">{errors.userName}</Alert>}
+                <label className='text-main h6 mt-2' htmlFor='email'> البريد الالكتروني</label>
                 <input placeholder='البريد الالكتروني' id='email' name='email' type='email'  ref={emailRef} className='input-modal my-2'
                 value={formData.email} 
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
                 {errors.email && <Alert severity="error">{errors.email}</Alert>}
+                <label className='text-main h6 mt-2' htmlFor='phone'>رقم الهاتف</label>
                 <input placeholder='رقم الهاتف' id='phone' name='phone' type='tel'  ref={phoneRef} className='input-modal my-2'
                 value={formData.phone} 
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
                 {errors.phone && <Alert severity="error">{errors.phone}</Alert>}
+                <label className='text-main h6 mt-2' htmlFor='age'> العمر</label>
                 <input placeholder='العمر' id='age' name='age' type='number'  ref={ageRef} className='input-modal my-2'
                 value={formData.age} 
                 onChange={(e) => setFormData({ ...formData, age: e.target.value })}
@@ -332,7 +338,7 @@ export default function Users() {
           <Button variant="secondary" onClick={handleCloseModal2}>
             اغلق
           </Button>
-          <Button variant="primary" onClick={updateHandler}>
+          <Button className='botton' onClick={updateHandler}>
             تاكيد
           </Button>
         </Modal.Footer>
@@ -341,11 +347,14 @@ export default function Users() {
             <div key={user._id} className='col-lg-4'>
               <div className='card mb-3'>
                 <div className='card-body'>
-                  <h5 className='card-title text-main'>{user.userName}</h5>
+                  <div className='d-flex'>
+                  {user.gender === "male"?<img src={male} alt='male' width={50}/>:<img src={female} alt='female' width={50}/>}
+                  <h5 className='card-title text-main mt-3'>{user.userName}</h5>
+                  </div>
                   <h6 className='card-subtitle mb-2 text-muted'>{user.email}</h6>
-                  <h5 className='text-main'>{user.phone}</h5>
-                  <h5 className='text-main'>{user.gender}</h5>
-                  <h5 className='text-main'>{user.age}</h5>
+                  <h5 className='text-muted'>{user.phone}</h5>
+                  <h5 className='text-muted'>{user.gender}</h5>
+                  <h5 className='text-muted'>{user.age}</h5>
                   <div className='d-flex justify-content-center align-items-center'>
                     {user.active === true ? (
                       <i className="fas fa-circle m-2" style={{ color: "green" }}></i>
@@ -362,8 +371,8 @@ export default function Users() {
           ))}
           <div className='d-flex justify-content-center mt-2'>
           <Pagination
-          color='primary'
-          defaultPage={1}
+          color='success'
+          defaultPage={2}
           
         count={users.paginationResult.numberOfPages}
         renderItem={(item) => 

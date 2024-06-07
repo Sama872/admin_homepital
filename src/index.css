@@ -34,11 +34,15 @@ code {
 .inp{
   border: none;
   outline: none;
-  border-bottom: #071355 2px solid;
+  border-bottom: #76b49f 2px solid;
   margin: 20px;
 }
 .text-main{
-  color:#071355 !important;
+  color:#9abf4d !important;
+  
+}
+.center-text{
+  text-align: center;
 }
 .text-pointer{
   cursor: pointer;
@@ -56,7 +60,7 @@ code {
     padding: 7px;
     margin: 4px;
     border: none;
-    border: 1px solid #071355;
+    border: 1px solid #76b49f;
     outline: none;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 3px;
@@ -65,6 +69,23 @@ code {
 .input-modal:focus::placeholder {
   transform: translateX(15px) translateY(-5px);
   transition: transform 0.3s ease;
-  color: #071355;
+  color: #76b49f;
   padding-right: 3px;
+}
+.card-shadow{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.botton{
+  background-color: #76b49f !important;
+  color: white !important;
+  outline: none  !important;
+  border: none !important;
+}
+.card-style{
+  max-height: 500px !important;
+  margin: 20px 0;
+}
+.form-button{
+  color: white !important;
+  background-color: #9abf4d !important;
 }

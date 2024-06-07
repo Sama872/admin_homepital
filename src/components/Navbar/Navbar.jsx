@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../../Images/hompital-Logo.png'
+import logo from '../../Images/logo-gded-removebg-preview.png'
 import { AdminContext } from './../../Context/AdminContext';
 
 
@@ -20,8 +20,8 @@ export default function Navbar() {
      <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div className='container-fluid'>
         <div className="navbar-brand d-flex align-items-center">
-        <img src={logo} alt='homepital' width={50}/>
-        <span>Homepital</span>
+        <img src={logo} alt='homepital'  width={100}/>
+        
         </div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -35,12 +35,12 @@ export default function Navbar() {
             </ul></>:<>
             <ul className='navbar-nav me-auto'>
             <li className="nav-item">
-                <Link className={pathname==='/login'?"nav-link bg-primary rounded text-white":"nav-link"} to="login">تسجيل الدخول</Link>
+                <Link className={pathname==='/login'?"nav-link botton rounded text-white":"nav-link"} to="login">تسجيل الدخول</Link>
             </li>
             </ul></>}
           {AdminToken&&localStorage.getItem('userRole')==='admin'? <ul className="navbar-nav mr-auto">
             <li className="nav-item m-auto">
-                <Link className={pathname==='/'?"nav-link bg-primary rounded text-white":"nav-link"} to="/">الرئيسيه<span className="sr-only">(current)</span></Link>
+                <Link className={pathname==='/'?"nav-link botton rounded text-white":"nav-link"} to="/">الرئيسيه<span className="sr-only">(current)</span></Link>
             </li>
             </ul>:""}
             

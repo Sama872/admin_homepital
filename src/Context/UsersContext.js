@@ -17,7 +17,7 @@ export default function UserContextProvider(props) {
     // get all users 
     async function getUsers(index){
        
-        return await axios.get(`http://localhost:8000/api/v1/users?limit=50&page=${index?index:1}`, {
+        return await axios.get(`http://localhost:8000/api/v1/users?limit=50&page=${index?index:2}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
